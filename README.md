@@ -52,16 +52,16 @@ If you prefer Pathogen you can copy&paste the following into your Terminal:
 
 ```sh
 cd ~/.vim/bundle
-git clone git://github.com/Greduan/vim-modecolorize.git
+git clone git://github.com/Greduan/vim-usefulstatusline.git
 ```
 
 If you prefer Vundle you can copy&paste the following into your `.vimrc` file:
 
 ```viml
-Bundle 'Greduan/vim-modecolorize'
+Bundle 'Greduan/vim-usefulstatusline'
 ```
 
-Once that is done, and you startup Vim, the help docs' tags will be generated and you can view the manual with `:h modecolorize` to view most of what you're seeing right now.
+Once that is done, and you startup Vim, the help docs' tags will be generated and you can view the manual with `:h usefulstatusline` to view most of what you're seeing right now.
 
 # Settings
 
@@ -109,12 +109,12 @@ Or if you really prefer the pure output, you can also call the `g:currentmode` v
 
 And now to the main show, changing the statusline's color depending on the mode. It's really pretty simple, you just gotta add the following function to the event that you want to update the statusline:
 ```viml
-usefulstatusline_colorize#ModeColorizeStatusline()
+usefulstatusline_colorize#usefulstatuslineStatusline()
 ```
 
 This can be added to the beginning of your statusline, to an auto command, to whatever you want to detect the change in mode. The statusline will only be updated when this is called. I suggest adding the following to your statusline:
 ```viml
-%{usefulstatusline_colorize#ModeColorizeStatusline()}
+%{usefulstatusline_colorize#usefulstatuslineStatusline()}
 ```
 
 # About

@@ -161,14 +161,14 @@ just output this in a nice way.
 And now to the main show, changing the statusline's color depending on the
 mode. It's really pretty simple, you just gotta add the following function to
 the event that you want to update the statusline: >
-    usefulstatusline_colorize#usefulstatuslineStatusline()
+    usefulstatusline_colorize#ModeColorizeStatusline()
 <
 
 This can be added to the beginning of your statusline, to an auto command, to
 whatever you want to detect the change in mode. The statusline will only be
 updated when this is called. I suggest adding the following to your
 statusline: >
-    %{usefulstatusline_colorize#usefulstatuslineStatusline()}
+    %{usefulstatusline_colorize#ModeColorizeStatusline()}
 <
 
 ==============================================================================
