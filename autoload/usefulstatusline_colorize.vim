@@ -1,26 +1,3 @@
-if (!exists('g:currentmode'))
-	let g:currentmode={
-		\ 'n'  : 'Normal',
-		\ 'no' : 'N·Operator Pending',
-		\ 'v'  : 'Visual',
-		\ 'V'  : 'V·Line',
-		\ '' : 'V·Block',
-		\ 's'  : 'Select',
-		\ 'S'  : 'S·Line',
-		\ '' : 'S·Block',
-		\ 'i'  : 'Insert',
-		\ 'R'  : 'Replace',
-		\ 'Rv' : 'V·Replace',
-		\ 'c'  : 'Command',
-		\ 'cv' : 'Vim Ex',
-		\ 'ce' : 'Ex',
-		\ 'r'  : 'Prompt',
-		\ 'rm' : 'More',
-		\ 'r?' : 'Confirm',
-		\ '!'  : 'Shell',
-		\}
-endif
-
 function! usefulstatusline_colorize#Colorize()
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))
 		let s:using_solarized_vars=0
