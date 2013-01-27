@@ -14,9 +14,9 @@ function! usefulstatusline_filesize#FileSizePure()
 	endif
 
 	if (exists('mbytes'))
-		return mbytes . 'MB'
+		return mbytes . '.' . kbytes_remainder . 'MB'
 	elseif (exists('kbytes'))
-		return kbytes . 'kB'
+		return kbytes . '.' . bytes_remainder . 'kB'
 	else
 		return bytes . 'B'
 	endif
@@ -38,9 +38,9 @@ function! usefulstatusline_filesize#FileSize()
 	endif
 
 	if (exists('mbytes'))
-		return . '[' . mbytes . 'MB]'
+		return . '[' . mbytes . '.' . kbytes_remainder . 'MB]'
 	elseif (exists('kbytes'))
-		return . '[' . kbytes . 'kB]'
+		return . '[' . kbytes . '.' . bytes_remainder . 'kB]'
 	else
 		return . '[' . bytes . 'B]'
 	endif
