@@ -19,7 +19,7 @@ _//       _//    _// _//_//    _// _//   _//   _//   _///// _// ~
 Name:    Useful Statusline *usefulstatusline*
 Author:  Eduan Lavaque (http://eduantech.com/)
 Source:  https://github.com/Greduan/vim-usefulstatusline
-Version: Beta 1.1
+Version: Beta 1.2
 
 ==============================================================================
 CONTENTS                                             *usefulstatusline-contents*
@@ -150,6 +150,10 @@ mode, you can do the following: >
 
 Basically what this does is output the value of the dictionary that equals what
 `mode()` outputs, or something.
+
+If you want you can define this variable in your .vimrc file, however make sure
+to make it a dictionary and make sure that it contains every mode :h |mode()|.
+
 
 ------------------------------------------------------------------------------
 4.1.1 Current mode                              *usefulstatusline-currentmode*

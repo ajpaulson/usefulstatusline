@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 		<td><strong>Version:</strong></td>
-		<td>Beta 1.1</td>
+		<td>Beta 1.2</td>
 	</tr>
 </table>
 
@@ -99,6 +99,8 @@ g:currentmode[mode()]
 ```
 
 Basically what this does is output the value of the dictionary that equals what `mode()` outputs, or something.
+
+If you want you can define this variable in your .vimrc file, however make sure to make it a dictionary and make sure that it contains every mode `:h mode()`.
 
 ### Current mode
 
