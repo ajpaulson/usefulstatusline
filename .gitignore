@@ -17,3 +17,6 @@
 # For Windows files.
 ehthumbs.db
 Thumbs.db
+
+# Vim doc files
+doc/tags

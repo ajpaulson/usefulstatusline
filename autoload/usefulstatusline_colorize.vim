@@ -1,4 +1,4 @@
-if (!exists(g:currentmode))
+if (!exists('g:currentmode'))
 	let g:currentmode={
 		\ 'n'  : 'Normal',
 		\ 'no' : 'N·Operator Pending',
