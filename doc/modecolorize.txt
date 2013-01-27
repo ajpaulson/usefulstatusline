@@ -24,17 +24,16 @@ Version: Beta 1.1
 ==============================================================================
 CONTENTS                                             *usefulstatusline-contents*
 
-    1. Introduction ................... |usefulstatusline-intro|
-        1.1. Functionality ............ |usefulstatusline-functionality|
-    2. Installation ................... |usefulstatusline-install|
-    3. Settings ....................... |usefulstatusline-settings|
-    4. Uses & Features ................ |usefulstatusline-uses-features|
-        4.1. Current file's size ...... |usefulstatusline-filesize|
-        4.2. Current mode ............. |usefulstatusline-currentmode|
-        4.3. Statusline colors ........ |usefulstatusline-colors|
-    4. About .......................... |usefulstatusline-about|
-        4.1. License .................. |usefulstatusline-license|
-    5. Credits ........................ |usefulstatusline-credits|
+    1. Introduction .................... |usefulstatusline-intro|
+    2. Installation .................... |usefulstatusline-install|
+    4. Uses & Features ................. |usefulstatusline-uses-features|
+        4.1. Current mode variable ..... |usefulstatusline-currentmodevariable|
+            4.1.1. Current file's size . |usefulstatusline-filesize|
+            4.1.2. Current mode ........ |usefulstatusline-currentmode|
+        4.2. Statusline colors ......... |usefulstatusline-colors|
+    4. About ........................... |usefulstatusline-about|
+        4.1. License ................... |usefulstatusline-license|
+    5. Credits ......................... |usefulstatusline-credits|
 
 ==============================================================================
 1. Introduction                                         *usefulstatusline-intro*
@@ -55,28 +54,8 @@ Also, as an extra, I added a function which will tell you the current buffer's
 file size, up to MBs. Although this is in the "/autoload" folder so that you
 don't suffer any kind of perfomance in case you don't use it.
 
-------------------------------------------------------------------------------
-1.1. Functionality                              *usefulstatusline-functionality*
-
-Mode Colorize provides the following functionality:
-
-* Very lightweight, doesn't waste any resources if you're not using it.
-* Changes color of statusline depending on the mode.
-  * If you're in normal mode it doesn't alter your statusline at all.
-  * If you're in visual mode the statusline will turn to a green background.
-  * If you're in insert mode the statusline background will turn to red,
-    letting you know you're not in a good mode.
-* Gives you an optional entry to your statusline which will output
-  [CURRENT MODE].
-* Same as feature above, however it can give you a clean string for you to
-  manipulate (e.g. it will output `Current Mode`, to which you can do whatever
-  you want).
-* Gives you an extra optional entry to your statusline which will output the
-  current buffer's size, it can output up to Mega bytes. This is totally
-  optional and will not be loaded unless called. In the same fashion as above.
-
 ==============================================================================
-2. Installation                                       *usefulstatusline-install*
+2. Installation                                     *usefulstatusline-install*
 
 If you don't have a preffered installation method, I recommend using Pathogen
 (script #2332) or Vundle (github.com/gmarik/vundle).
@@ -94,7 +73,7 @@ Once that is done, and you startup Vim, the help docs' tags will be generated
 and you can view the manual with ':h |usefulstatusline|'
 
 ==============================================================================
-3. Settings                                          *usefulstatusline-settings*
+3. Settings                                        *usefulstatusline-settings*
 
 In this section I'm gonna offer you some of the things that can be configured
 for Mode Colorize. Mostly behaviors and stuff like that.
@@ -102,25 +81,46 @@ for Mode Colorize. Mostly behaviors and stuff like that.
 However I'm afraid right now there's nothing to configure. :(
 
 ==============================================================================
-4. Uses & Features                              *usefulstatusline-uses-features*
+4. Uses & Features                            *usefulstatusline-uses-features*
 
-In this section I'm gonna list some (or all) of the features that Mode
-Colorize provides, and how to achieve them.
+In this section I'm gonna list some (or all) of the features that Useful
+Statusline provides, and how to achieve them.
+
+Note, I'm explaining this so that I don't have to do it in every feature. If
+the feature has an output, then there's gonna be a normal version of the
+function and a "pure" version. The pure version will have "Pure" in the
+function name. The difference is that one puts out the output in a pure
+fashion, only the result of the value. And the non-pure version will output it
+in a nice way.
 
 ------------------------------------------------------------------------------
-4.1. Current file's size                             *usefulstatusline-filesize*
+4.1. Current file's size                           *usefulstatusline-filesize*
 
-Mode Colorize comes with a nice addition to your statusline. It doesn't have
-anything to do with it's color or mode, however since it is a plugin for your
-statusline, I thought I would add it in.
+Useful Statusline comes with a nice addition to your statusline. It doesn't
+have anything to do with it's color or mode, however since it is a plugin for
+your statusline, I thought I would add it in.
 
 What extra am I gonna add? I'm gonna give you an extra couple of functions
 which output the current file's size. They support up to mega bytes, if you
 reach one giga byte it will only display the amount of MBs, won't show GBs.
 
 I'm also gonna give it to you in two ways, one outputs the current file's size
-(e.g. "11KB") just like that, and the other in between square brackets
-(e.g. "[11KB]"). Which one you use is up to you however.
+(e.g. 11.123kB) just like that, and the other in between square brackets (e.g.
+[11.123kB]). Which one you use is up to you however.
+
+The way it does it is like this: >
+    [100.12kB]
+    ^   ^ ^
+    |   | |
+    |   | + File size format, possible formats are `B` for bytes, `kB` for
+    |   |   kilobytes, and `MB` for megabytes.
+    |   |
+    |   + The remainder of the size, if the format is `kB` then it will output
+    |     the bytes, if it's `MB` it outputs kilobytes.
+    |
+    + The file size, it can output `B` for bytes, `kB` for kilobytes and `MB`
+      formegabytes.
+<
 
 You can use them putting the following into your statusline (one line for each
 version): >
@@ -133,11 +133,26 @@ them, use them as you like, remember you can also manipulate the text they
 output. And also remember you can put them wherever you want, not just the
 statusline.
 
-One more thing, if the file for whatever reason is empty it will output that
-("empty" or within the square brackets).
+One more thing, if the file for whatever reason is empty it will output "empty"
+or within the square brackets.
 
 ------------------------------------------------------------------------------
-4.2. Current mode                                 *usefulstatusline-currentmode*
+4.1. Current mode variable              *usefulstatusline-currentmodevariable*
+
+In this plugin I made myself the favor of setting the `g:currentmode` variable,
+it's basically a nice version of the current mode. So for visual mode the
+variable will know it's `Visual`.
+
+To reach the current value of the variable, or in other words, the current
+mode, you can do the following: >
+    g:currentmode[mode()]
+<
+
+Basically what this does is output the value of the dictionary that equals what
+`mode()` outputs, or something.
+
+------------------------------------------------------------------------------
+4.1.1 Current mode                              *usefulstatusline-currentmode*
 
 Now what would a statusline colorizing depending on the mode plugin be without
 outputting the current mode?
@@ -156,23 +171,23 @@ variable, which contains all the mode names in a readable way. These functions
 just output this in a nice way.
 
 ------------------------------------------------------------------------------
-4.3. Statusline colors                                 *usefulstatusline-colors*
+4.1.2 Statusline colors                              *usefulstatusline-colors*
 
 And now to the main show, changing the statusline's color depending on the
 mode. It's really pretty simple, you just gotta add the following function to
 the event that you want to update the statusline: >
-    usefulstatusline_colorize#ModeColorizeStatusline()
+    usefulstatusline_colorize#Colorize()
 <
 
 This can be added to the beginning of your statusline, to an auto command, to
 whatever you want to detect the change in mode. The statusline will only be
 updated when this is called. I suggest adding the following to your
 statusline: >
-    %{usefulstatusline_colorize#ModeColorizeStatusline()}
+    %{usefulstatusline_colorize#Colorize()}
 <
 
 ==============================================================================
-5. About                                                *usefulstatusline-about*
+5. About                                              *usefulstatusline-about*
 
 Mode Colorize was born from need, almost. I found out about the idea to
 colorize the statusline and I wanted it! However I had a hart time
@@ -185,7 +200,7 @@ this because it's hard to implement, or atleast not easy and it requires some
 experimentation. So I decided to put it into a nice plugin.
 
 ------------------------------------------------------------------------------
-5.1. License                                          *usefulstatusline-license*
+5.1. License                                        *usefulstatusline-license*
 
 The MIT License (MIT)
 Copyright © 2012 Eduan Lavaque <eduan@snapsimpletech.com>
