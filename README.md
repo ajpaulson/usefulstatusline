@@ -31,19 +31,6 @@ This allows you to quickly know what mode you're in without having to mess up to
 
 Also, as an extra, I added a function which will tell you the current buffer's file size, up to MBs. Although this is in the `/autoload` folder so that you don't suffer any kind of perfomance in case you don't use it.
 
-## Functionality
-
-Useful Statusline provides the following functionality:
-
-- Very lightweight, doesn't waste any resources if you're not using it.
-- Changes color of statusline depending on the mode.
-  - If you're in normal mode it doesn't alter your statusline at all.
-  - If you're in visual mode the statusline will turn to a green background.
-  - If you're in insert mode the statusline background will turn to red, letting you know you're not in a good mode.
-- Gives you an optional entry to your statusline which will output `[CURRENT MODE]`.
-- Same as feature above, however it can give you a clean string for you to manipulate (e.g. it will output `Current Mode`, to which you can do whatever you want).
-- Gives you an extra optional entry to your statusline which will output the current buffer's size, it can output up to Mega bytes. This is totally optional and will not be loaded unless called.
-
 # Installation
 
 If you don't have a preffered installation method, I recommend using [Pathogen][1] or [Vundle][2].
@@ -63,15 +50,11 @@ Bundle 'Greduan/vim-usefulstatusline'
 
 Once that is done, and you startup Vim, the help docs' tags will be generated and you can view the manual with `:h usefulstatusline` to view most of what you're seeing right now.
 
-# Settings
-
-In this section I'm gonna offer you some of the things that can be configured¬for Useful Statusline. Mostly behaviors and stuff like that.
-
-However I'm afraid right now there's nothing to configure. :(
-
 # Uses & Features
 
 In this section I'm gonna list some (or all) of the features that Useful Statusline provides, and how to achieve them.
+
+Note, I'm explaining this so that I don't have to do it in every feature. If the feature has an output, then there's gonna be a normal version of the function and a "pure" version. The pure version will have "Pure" in the function name. The difference is that one puts out the output in a pure fashion, only the result of the value. And the non-pure version will output it in a nice way.
 
 ## Current file's size
 
@@ -79,7 +62,22 @@ Useful Statusline comes with a nice addition to your statusline. It doesn't have
 
 What extra am I gonna add? I'm gonna give you an extra couple of functions which output the current file's size. They support up to mega bytes, if you reach one giga byte it will only display the amount of MBs, won't show GBs.
 
-I'm also gonna give it to you in two ways, one outputs the current file's size (e.g. `11KB`) just like that, and the other in between square brackets (e.g. `[11KB]`). Which one you use is up to you however.
+I'm also gonna give it to you in two ways, one outputs the current file's size (e.g. `11.123kB`) just like that, and the other in between square brackets (e.g. `[11.123kB]`). Which one you use is up to you however.
+
+The way it does it is like this:
+```text
+[100.12kB]
+ ^   ^ ^
+ |   | |
+ |   | + File size format, possible formats are `B` for bytes, `kB` for
+ |   |   kilobytes, and `MB` for megabytes.
+ |   |
+ |   + The remainder of the size, if the format is `kB` then it will output the
+ |     bytes, if it's `MB` it outputs kilobytes.
+ |
+ + The file size, it can output `B` for bytes, `kB` for kilobytes and `MB` for
+   megabytes.
+```
 
 You can use them putting the following into your statusline (one line for each version):
 ```viml
@@ -89,9 +87,20 @@ You can use them putting the following into your statusline (one line for each v
 
 The first one outputs with the square brackets, the second one outputs without them, use them as you like, remember you can also manipulate the text they output. And also remember you can put them wherever you want, not just the statusline.
 
-One more thing, if the file for whatever reason is empty it will output that ("empty" or within the square brackets).
+One more thing, if the file for whatever reason is empty it will output "empty" or within the square brackets.
 
-## Current mode
+## Current mode variable
+
+In this plugin I made myself the favor of setting the `g:currentmode` variable, it's basically a nice version of the current mode. So for visual mode the variable will know it's `Visual`.
+
+To reach the current value of the variable, or in other words, the current mode, you can do the following:
+```viml
+g:currentmode[mode()]
+```
+
+Basically what this does is output the value of the dictionary that equals what `mode()` outputs, or something.
+
+### Current mode
 
 Now what would a statusline colorizing depending on the mode plugin be without outputting the current mode?
 
@@ -103,18 +112,18 @@ Same as above, here they are:
 %{usefulstatusline_mode#CurrentModePure()}
 ```
 
-Or if you really prefer the pure output, you can also call the `g:currentmode` variable, which contains all the mode names in a readable way. These functions just output this in a nice way.
+Or if you *really* prefer the pure output, you can also call the `g:currentmode` variable, which contains all the mode names in a readable way. These functions just output this in a nice way.
 
-## Statusline colors
+### Statusline colors
 
-And now to the main show, changing the statusline's color depending on the mode. It's really pretty simple, you just gotta add the following function to the event that you want to update the statusline:
+And now, changing the statusline's color depending on the mode. It's really pretty simple, you just gotta add the following function to the event that you want to update the statusline:
 ```viml
-usefulstatusline_colorize#usefulstatuslineStatusline()
+usefulstatusline_colorize#Colorize()
 ```
 
 This can be added to the beginning of your statusline, to an auto command, to whatever you want to detect the change in mode. The statusline will only be updated when this is called. I suggest adding the following to your statusline:
 ```viml
-%{usefulstatusline_colorize#usefulstatuslineStatusline()}
+%{usefulstatusline_colorize#Colorize()}
 ```
 
 # About

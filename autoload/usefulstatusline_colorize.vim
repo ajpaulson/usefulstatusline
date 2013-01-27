@@ -21,7 +21,7 @@ if (!exists('g:currentmode'))
 		\}
 endif
 
-function! usefulstatusline_colorize#ModeColorizeStatusline()
+function! usefulstatusline_colorize#Colorize()
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))
 		let s:using_solarized_vars=0
 		let s:vars=g:solarized_vars
