@@ -19,13 +19,14 @@ _//       _//    _// _//_//    _// _//   _//   _//   _///// _// ~
 Name:    Useful Statusline *usefulstatusline*
 Author:  Eduan Lavaque (http://eduantech.com/)
 Source:  https://github.com/Greduan/vim-usefulstatusline
-Version: Beta 1.2
+Version: Beta 1.3
 
 ==============================================================================
 CONTENTS                                             *usefulstatusline-contents*
 
     1. Introduction .................... |usefulstatusline-intro|
     2. Installation .................... |usefulstatusline-install|
+        2.1 Requirements ............... |usefulstatusline-requirements|
     4. Uses & Features ................. |usefulstatusline-uses-features|
         4.1. Current mode variable ..... |usefulstatusline-currentmodevariable|
             4.1.1. Current file's size . |usefulstatusline-filesize|
@@ -71,6 +72,15 @@ If you prefer Vundle you can copy&paste the following into your .vimrc file: >
 
 Once that is done, and you startup Vim, the help docs' tags will be generated
 and you can view the manual with ':h |usefulstatusline|'
+
+------------------------------------------------------------------------------
+2.1 Requirements                               *usefulstatusline-requirements*
+
+These are some things that Useful Statusline might require, or would be better
+if it had.
+
+The filesize functions probably require the |+byte_offset| feature, in order
+to figure out the size of the file. Confirmation still required.
 
 ==============================================================================
 3. Settings                                        *usefulstatusline-settings*
