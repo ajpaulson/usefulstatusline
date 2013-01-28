@@ -50,6 +50,12 @@ Bundle 'Greduan/vim-usefulstatusline'
 
 Once that is done, and you startup Vim, the help docs' tags will be generated and you can view the manual with `:h usefulstatusline` to view most of what you're seeing right now.
 
+## Requirements
+
+These are some things that Useful Statusline might require, or would be better if it had.
+
+The filesize functions probably require the `+byte_offset` feature, confirmation would be nice. :wink:
+
 # Uses & Features
 
 In this section I'm gonna list some (or all) of the features that Useful Statusline provides, and how to achieve them.
