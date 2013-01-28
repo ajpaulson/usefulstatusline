@@ -79,8 +79,8 @@ and you can view the manual with ':h |usefulstatusline|'
 These are some things that Useful Statusline might require, or would be better
 if it had.
 
-The filesize functions probably require the |+byte_offset| feature, in order
-to figure out the size of the file. Confirmation still required.
+The file size functions *may* require Vim to be compiled with the following:
+|byte_offset| |+float|
 
 ==============================================================================
 3. Settings                                        *usefulstatusline-settings*

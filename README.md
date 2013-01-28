@@ -54,7 +54,8 @@ Once that is done, and you startup Vim, the help docs' tags will be generated an
 
 These are some things that Useful Statusline might require, or would be better if it had.
 
-The filesize functions probably require the `+byte_offset` feature, confirmation would be nice. :wink:
+The file size functions *may* require Vim to be compiled with the following:<br />
+[`+byte_offset`][3] [`+float`][4]
 
 # Uses & Features
 
@@ -171,3 +172,5 @@ I'm afraid there's no one to thank yet, except myself. :(
 
 [1]: https://github.com/tpope/vim-pathogen
 [2]: https://github.com/gmarik/vundle
+[3]: http://vimdoc.sourceforge.net/htmldoc/various.html#+byte_offset
+[4]: http://vimdoc.sourceforge.net/htmldoc/various.html#+float
