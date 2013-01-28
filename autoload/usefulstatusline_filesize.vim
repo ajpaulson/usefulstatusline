@@ -38,10 +38,10 @@ function! usefulstatusline_filesize#FileSize()
 	endif
 
 	if (exists('mbytes'))
-		return . '[' . mbytes . '.' . kbytes_remainder . 'MB]'
+		return '[' . mbytes . '.' . kbytes_remainder . 'MB]'
 	elseif (exists('kbytes'))
-		return . '[' . kbytes . '.' . bytes_remainder . 'kB]'
+		return '[' . kbytes . '.' . bytes_remainder . 'kB]'
 	else
-		return . '[' . bytes . 'B]'
+		return '[' . bytes . 'B]'
 	endif
 endfunction

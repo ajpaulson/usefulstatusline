@@ -60,20 +60,20 @@ function! usefulstatusline_colorize#Colorize()
 		endif
 
 		" Some Solarized colorscheme definitions
-			let s:r = ',reverse'
-			if (g:solarized_bold == 0 || &t_Co == 8 )
-				let s:b           = ""
-				let s:bb          = ',bold'
-			else
-				let s:b           = ',bold'
-				let s:bb          = ""
-			endif
-			exe 'let s:fmt_none = " '.s:vmode.'=NONE'.' term=NONE'.'"'
-			exe 'let s:fmt_revbb = " '.s:vmode.'=NONE'.s:r.s:bb.' term=NONE'.s:r.s:bb.'"'
-			exe 'let s:bg_base02 = " '.s:vmode.'bg='.s:base02.'"'
-			exe 'let s:fg_base1 = " '.s:vmode.'fg='.s:base1.'"'
-			exe 'let s:fg_green = " '.s:vmode.'fg='.s:green.'"'
-			exe 'let s:fg_red = " '.s:vmode.'fg='.s:red.'"'
+		let s:r = ',reverse'
+		if (g:solarized_bold == 0 || &t_Co == 8 )
+			let s:b           = ""
+			let s:bb          = ',bold'
+		else
+			let s:b           = ',bold'
+			let s:bb          = ""
+		endif
+		exe 'let s:fmt_none = " '.s:vmode.'=NONE'.' term=NONE'.'"'
+		exe 'let s:fmt_revbb = " '.s:vmode.'=NONE'.s:r.s:bb.' term=NONE'.s:r.s:bb.'"'
+		exe 'let s:bg_base02 = " '.s:vmode.'bg='.s:base02.'"'
+		exe 'let s:fg_base1 = " '.s:vmode.'fg='.s:base1.'"'
+		exe 'let s:fg_green = " '.s:vmode.'fg='.s:green.'"'
+		exe 'let s:fg_red = " '.s:vmode.'fg='.s:red.'"'
 
 		if(mode() =~# '\v(n|no)')
 			" Need to do stuff
