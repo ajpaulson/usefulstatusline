@@ -143,8 +143,8 @@ them, use them as you like, remember you can also manipulate the text they
 output. And also remember you can put them wherever you want, not just the
 statusline.
 
-One more thing, if the file for whatever reason is empty it will output "empty"
-or within the square brackets.
+One more thing, if the file for whatever reason is empty it will output
+"empty" or within the square brackets.
 
 ------------------------------------------------------------------------------
 4.1. Current mode variable              *usefulstatusline-currentmodevariable*
@@ -158,11 +158,12 @@ mode, you can do the following: >
     g:currentmode[mode()]
 <
 
-Basically what this does is output the value of the dictionary that equals what
-`mode()` outputs, or something.
+Basically what this does is output the value of the dictionary that equals
+what |mode()| outputs, or something.
 
-If you want you can define this variable in your .vimrc file, however make sure
-to make it a dictionary and make sure that it contains every mode :h |mode()|.
+If you want you can define this variable in your .vimrc file, however make
+sure to make it a dictionary and make sure that it contains every mode
+`:h |mode()|`.
 
 
 ------------------------------------------------------------------------------
@@ -238,8 +239,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ==============================================================================
-6. Credits                                            *usefulstatusline-credits*
+6. Credits                                          *usefulstatusline-credits*
 
 I'm afraid there's no one to thank yet, except myself. :(
 
-vim:tw=79:et:ft=help:norl:
+ vim:tw=78:et:ft=help:norl

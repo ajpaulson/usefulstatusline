@@ -72,11 +72,11 @@ I'm also gonna give it to you in two ways, one outputs the current file's size (
 
 The way it does it is like this:
 ```text
-[100.12kB]
- ^   ^ ^
- |   | |
- |   | + File size format, possible formats are `B` for bytes, `kB` for
- |   |   kilobytes, and `MB` for megabytes.
+[100.120kB]
+ ^   ^  ^
+ |   |  |
+ |   |  + File size format, possible formats are `B` for bytes, `kB` for
+ |   |    kilobytes, and `MB` for megabytes.
  |   |
  |   + The remainder of the size, if the format is `kB` then it will output the
  |     bytes, if it's `MB` it outputs kilobytes.
