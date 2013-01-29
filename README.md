@@ -168,9 +168,12 @@ SOFTWARE.
 
 # Credits
 
-I'm afraid there's no one to thank yet, except myself. :(
+In here I will list all the people I'm grateful towards, for one reason or another, whichever that may be.
+
+- @ZyX-I: For giving me very useful tips on how to improve the file size functions. He helped me with this [StackOverflow question][5].
 
 [1]: https://github.com/tpope/vim-pathogen
 [2]: https://github.com/gmarik/vundle
 [3]: http://vimdoc.sourceforge.net/htmldoc/various.html#+byte_offset
 [4]: http://vimdoc.sourceforge.net/htmldoc/various.html#+float
+[5]: http://stackoverflow.com/q/14549733/1622940

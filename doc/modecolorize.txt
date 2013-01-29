@@ -242,6 +242,11 @@ SOFTWARE.
 ==============================================================================
 6. Credits                                          *usefulstatusline-credits*
 
-I'm afraid there's no one to thank yet, except myself. :(
+In here I will list all the people I'm grateful towards, for one reason or
+another, whichever that may be.
+
+- @ZyX-I: For giving me very useful tips on how to improve the file size
+          functions. He helped me with this StackOverflow question:
+          http://stackoverflow.com/q/14549733/1622940
 
  vim:tw=78:et:ft=help:norl

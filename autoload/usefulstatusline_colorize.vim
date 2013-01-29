@@ -24,39 +24,39 @@ function! usefulstatusline_colorize#Colorize()
 		" We also check to see if user has set solarized (force use of the
 		" neutral gray monotone palette component)
 		if (has("gui_running") && g:solarized_degrade == 0)
-			let s:vmode       = "gui"
-			let s:base02      = "#073642"
-			let s:base1       = "#93a1a1"
-			let s:red         = "#dc322f"
-			let s:green       = "#719e07" "experimental
+			let s:vmode  = "gui"
+			let s:base02 = "#073642"
+			let s:base1  = "#93a1a1"
+			let s:red    = "#dc322f"
+			let s:green  = "#719e07" "experimental
 		elseif (has("gui_running") && g:solarized_degrade == 1)
 			" These colors are identical to the 256 color mode. They may be viewed
 			" while in gui mode via "let g:solarized_degrade=1", though this is not
 			" recommened and is for testing only.
-			let s:vmode       = "gui"
-			let s:base02      = "#262626"
-			let s:base1       = "#8a8a8a"
-			let s:red         = "#af0000"
-			let s:green       = "#5f8700"
+			let s:vmode  = "gui"
+			let s:base02 = "#262626"
+			let s:base1  = "#8a8a8a"
+			let s:red    = "#af0000"
+			let s:green  = "#5f8700"
 		elseif g:solarized_termcolors != 256 && &t_Co >= 16
-			let s:vmode       = "cterm"
-			let s:base02      = "0"
-			let s:base1       = "14"
-			let s:red         = "1"
-			let s:green       = "2"
+			let s:vmode  = "cterm"
+			let s:base02 = "0"
+			let s:base1  = "14"
+			let s:red    = "1"
+			let s:green  = "2"
 		elseif g:solarized_termcolors == 256
-			let s:vmode       = "cterm"
-			let s:base02      = "235"
-			let s:base1       = "245"
-			let s:red         = "124"
-			let s:green       = "64"
+			let s:vmode  = "cterm"
+			let s:base02 = "235"
+			let s:base1  = "245"
+			let s:red    = "124"
+			let s:green  = "64"
 		else
-			let s:vmode       = "cterm"
-			let s:bright      = "* term=bold cterm=bold"
-			let s:base02      = "Black"         " 0
-			let s:base1       = "LightCyan"     " 6*
-			let s:red         = "DarkRed"       " 1
-			let s:green       = "DarkGreen"     " 2
+			let s:vmode  = "cterm"
+			let s:bright = "* term=bold cterm=bold"
+			let s:base02 = "Black"         " 0
+			let s:base1  = "LightCyan"     " 6*
+			let s:red    = "DarkRed"       " 1
+			let s:green  = "DarkGreen"     " 2
 		endif
 
 		" Some Solarized colorscheme definitions
