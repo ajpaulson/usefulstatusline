@@ -1,4 +1,3 @@
-function! usefulstatusline_colorize#Colorize()
 	" Solarized && g:solarized_vars {{{
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))
 		"let s:using_solarized_vars=1
@@ -6,20 +5,17 @@ function! usefulstatusline_colorize#Colorize()
 
 		if (mode() =~# '\v(n|no)')
 			exe 'hi! StatusLine '.s:vars['fmt_none'].s:vars['fg_base1'].s:vars['bg_base02'].s:vars['fmt_revbb']
-			return ''
 		elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block')
 			exe 'hi! StatusLine'.s:vars['fmt_none'].s:vars['fg_green'].s:vars['bg_base02'].s:vars['fmt_revbb']
-			return ''
 		elseif (mode() ==# 'i')
 			exe 'hi! StatusLine'.s:vars['fmt_none'].s:vars['fg_red'].s:vars['bg_base02'].s:vars['fmt_revbb']
-			return ''
 		else
 			exe 'hi! StatusLine '.s:vars['fmt_none'].s:vars['fg_base1'].s:vars['bg_base02'].s:vars['fmt_revbb']
-			return ''
 		endif
 	endif
 	" }}}
 
+function! usefulstatusline_colorize#Colorize()
 	if (g:colors_name != 'solarized' || !exists('s:using_solarized_vars'))
 		if (!exists('g:usefulstatusline_colorize_custom'))
 			" Solarized definitions {{{
@@ -84,31 +80,28 @@ function! usefulstatusline_colorize#Colorize()
 			" }}}
 		endif
 
-		if (!exists('g:usefulstatusline_colorize_custom') && !exists('g:usefulstatusline_normal'))
-			exe 'let g:usefulstatusline_normal='.s:fmt_none.s:vmode.'fg='.s:base1.s:vmode.'bg='.s:base02.s:fmt_revbb
+		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_normal'))
+			let g:usefulstatusilne_normal=call(exe, ['hi StatusLine'], {})
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') && !exists('g:usefulstatusline_visual'))
+		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_visual'))
 			exe 'let g:usefulstatusline_visual='.s:fmt_none.s:vmode.'fg='.s:green.s:vmode.'bg='.s:base02.s:fmt_revbb
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') && !exists('g:usefulstatusline_insert'))
+		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_insert'))
 			exe 'let g:usefulstatusline_insert='.s:fmt_none.s:vmode.'fg='.s:red.s:vmode.'bg='.s:base02.s:fmt_revbb
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') && !exists('g:usefulstatusline_error'))
-			exe 'let g:usefulstatusline_error='.s:fmt_none.s:vmode.'fg='.s:base1.s:vmode.'bg='.s:base02.s:fmt_revbb
+		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_error'))
+			let g:usefulstatusilne_normal=call(exe, ['hi StatusLine'], {})
 		endif
+			
 
 		if(mode() =~# '\v(n|no)')
 			exe 'hi! StatusLine '.g:usefulstatusline_normal
-			return ''
 		elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block')
 			exe 'hi! StatusLine '.g:usefulstatusline_visual
-			return ''
 		elseif (mode() ==# 'i')
 			exe 'hi! StatusLine '.g:usefulstatusline_insert
-			return ''
 		else
 			exe 'hi! StatusLine '.g:usefulstatusline_error
-			return ''
 		endif
 	endif
 endfunction
