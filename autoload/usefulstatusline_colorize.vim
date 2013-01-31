@@ -1,7 +1,7 @@
 function! usefulstatusline_colorize#Colorize()
 	" Solarized && g:solarized_vars {{{
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))
-		"let s:using_solarized_vars=1
+		let s:using_solarized_vars=1
 		let s:vars=g:solarized_vars
 
 		if (mode() =~# '\v(n|no)')
@@ -13,6 +13,8 @@ function! usefulstatusline_colorize#Colorize()
 		else
 			exe 'hi! StatusLine '.s:vars['fmt_none'].s:vars['fg_base1'].s:vars['bg_base02'].s:vars['fmt_revbb']
 		endif
+
+		return ''
 	endif
 	" }}}
 
