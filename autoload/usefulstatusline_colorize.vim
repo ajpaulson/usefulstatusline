@@ -1,3 +1,4 @@
+function! usefulstatusline_colorize#Colorize()
 	" Solarized && g:solarized_vars {{{
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))
 		"let s:using_solarized_vars=1
@@ -15,7 +16,6 @@
 	endif
 	" }}}
 
-function! usefulstatusline_colorize#Colorize()
 	if (g:colors_name != 'solarized' || !exists('s:using_solarized_vars'))
 		if (!exists('g:usefulstatusline_colorize_custom'))
 			" Solarized definitions {{{
@@ -92,7 +92,6 @@ function! usefulstatusline_colorize#Colorize()
 		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_error'))
 			let g:usefulstatusilne_normal=call(exe, ['hi StatusLine'], {})
 		endif
-			
 
 		if(mode() =~# '\v(n|no)')
 			exe 'hi! StatusLine '.g:usefulstatusline_normal
