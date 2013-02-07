@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 		<td><strong>Version:</strong></td>
-		<td>Beta 1.3.3</td>
+		<td>Beta 1.4</td>
 	</tr>
 </table>
 
@@ -133,6 +133,14 @@ usefulstatusline_colorize#Colorize()
 This can be added to the beginning of your statusline, to an auto command, to whatever you want to detect the change in mode. The statusline will only be updated when this is called. I suggest adding the following to your statusline:
 ```viml
 %{usefulstatusline_colorize#Colorize()}
+```
+
+So as an example, if you only want to modify the statusline color when you are in insert mode you would add the following to your `.vimrc` file:
+```viml
+augroup UsefulStatusline
+	autocmd!
+	autocmd InsertEnter,InsertLeave :call usefulstatusline_colorize#Colorize()
+augroup END
 ```
 
 # About
