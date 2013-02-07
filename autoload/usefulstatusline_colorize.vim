@@ -82,16 +82,16 @@ function! usefulstatusline_colorize#Colorize()
 			" }}}
 		endif
 
-		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_normal'))
+		if (!exists('g:usefulstatusline_normal'))
 			exe 'let g:usefulstatusline_normal="'.s:fmt_none.' '.s:vmode.'fg='.s:base1.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_visual'))
+		if (!exists('g:usefulstatusline_visual'))
 			exe 'let g:usefulstatusline_visual="'.s:fmt_none.' '.s:vmode.'fg='.s:green.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_insert'))
+		if (!exists('g:usefulstatusline_insert'))
 			exe 'let g:usefulstatusline_insert="'.s:fmt_none.' '.s:vmode.'fg='.s:red.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
-		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_error'))
+		if (!exists('g:usefulstatusline_error'))
 			let g:usefulstatusline_error=g:usefulstatusline_normal
 		endif
 
