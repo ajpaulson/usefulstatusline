@@ -27,13 +27,13 @@ function! usefulstatusline_colorize#Colorize()
 			" leave the hex values out entirely in that case and include only cterm colors)
 			" We also check to see if user has set solarized (force use of the
 			" neutral gray monotone palette component)
-			if (has("gui_running") && g:solarized_degrade == 0)
+			if (has('gui_running') && g:solarized_degrade == 0)
 				let s:vmode  = "gui"
 				let s:base02 = "#073642"
 				let s:base1  = "#93a1a1"
 				let s:red    = "#dc322f"
 				let s:green  = "#719e07" "experimental
-			elseif (has("gui_running") && g:solarized_degrade == 1)
+			elseif (has('gui_running') && g:solarized_degrade == 1)
 				" These colors are identical to the 256 color mode. They may be viewed
 				" while in gui mode via "let g:solarized_degrade=1", though this is not
 				" recommened and is for testing only.
@@ -66,11 +66,11 @@ function! usefulstatusline_colorize#Colorize()
 			" Some Solarized colorscheme definitions
 			let s:r = ',reverse'
 			if (g:solarized_bold == 0 || &t_Co == 8 )
-				let s:b           = ""
-				let s:bb          = ',bold'
+				let s:b  = ''
+				let s:bb = ',bold'
 			else
-				let s:b           = ',bold'
-				let s:bb          = ""
+				let s:b  = ',bold'
+				let s:bb = ''
 			endif
 			exe 'let s:fmt_none = " '.s:vmode.'=NONE'.' term=NONE'.'"'
 			exe 'let s:fmt_revbb = " '.s:vmode.'=NONE'.s:r.s:bb.' term=NONE'.s:r.s:bb.'"'
@@ -83,16 +83,16 @@ function! usefulstatusline_colorize#Colorize()
 		endif
 
 		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_normal'))
-			let g:usefulstatusilne_normal=call(exe, ['hi StatusLine'], {})
+			exe 'let g:usefulstatusline_normal="'.s:fmt_none.' '.s:vmode.'fg='.s:base1.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
 		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_visual'))
-			exe 'let g:usefulstatusline_visual='.s:fmt_none.s:vmode.'fg='.s:green.s:vmode.'bg='.s:base02.s:fmt_revbb
+			exe 'let g:usefulstatusline_visual="'.s:fmt_none.' '.s:vmode.'fg='.s:green.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
 		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_insert'))
-			exe 'let g:usefulstatusline_insert='.s:fmt_none.s:vmode.'fg='.s:red.s:vmode.'bg='.s:base02.s:fmt_revbb
+			exe 'let g:usefulstatusline_insert="'.s:fmt_none.' '.s:vmode.'fg='.s:red.' '.s:vmode.'bg='.s:base02.' '.s:fmt_revbb.'"'
 		endif
 		if (!exists('g:usefulstatusline_colorize_custom') || !exists('g:usefulstatusline_error'))
-			let g:usefulstatusilne_normal=call(exe, ['hi StatusLine'], {})
+			let g:usefulstatusline_error=g:usefulstatusline_normal
 		endif
 
 		if(mode() =~# '\v(n|no)')
@@ -105,4 +105,6 @@ function! usefulstatusline_colorize#Colorize()
 			exe 'hi! StatusLine '.g:usefulstatusline_error
 		endif
 	endif
+
+	return ''
 endfunction
