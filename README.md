@@ -23,13 +23,11 @@
 
 -----
 
-A smart statusline that changes color depending on the current mode you're in. That's what Useful Statusline is.
+A cool little light-weight plugin that gives you access to lots of useful little functions for your statusline. That's what Useful Statusline is.
 
-Basically, if you're normal mode then it will display as usual, however if you're in insert mode it will change the statusline background color to red and the text to the usual. And if you're in any kind of visual mode it will change the background to green.
+Basically, it gives you lots of stuff to use in your statusline. However if you're using [Powerline][6] this is pretty much useless, remember that.
 
-This allows you to quickly know what mode you're in without having to mess up to find out.
-
-Also, as an extra, I added a function which will tell you the current buffer's file size, up to MBs. Although this is in the `/autoload` folder so that you don't suffer any kind of perfomance in case you don't use it.
+For starters it gives you a function to output the current buffer's file size, it allows you to change the statusline color depending on the color. And it can output the current mode, not only change the statusline's color. :wink:
 
 # Installation
 
@@ -185,3 +183,4 @@ In here I will list all the people I'm grateful towards, for one reason or anoth
 [3]: http://vimdoc.sourceforge.net/htmldoc/various.html#+byte_offset
 [4]: http://vimdoc.sourceforge.net/htmldoc/various.html#+float
 [5]: http://stackoverflow.com/q/14549733/1622940
+[6]: https://github.com/Lokaltog/vim-powerline
