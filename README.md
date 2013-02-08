@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 		<td><strong>Version:</strong></td>
-		<td>Beta 1.4.2</td>
+		<td>Beta 1.4.3</td>
 	</tr>
 </table>
 
@@ -139,7 +139,7 @@ So as an example, if you only want to modify the statusline color when you are i
 ```viml
 augroup UsefulStatusline
 	autocmd!
-	autocmd InsertEnter,InsertLeave :call usefulstatusline_colorize#Colorize()
+	autocmd InsertEnter,InsertLeave * :call usefulstatusline_colorize#Colorize()
 augroup END
 ```
 
