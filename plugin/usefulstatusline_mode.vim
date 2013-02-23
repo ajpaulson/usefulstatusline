@@ -1,3 +1,8 @@
+if (exists('loaded_usefulstatusline_plugin')) || !has('statusline')
+	finish
+endif
+let g:loaded_usefulstatusline_plugin=1
+
 if (!exists('g:currentmode'))
 	let g:currentmode={
 		\ 'n'  : 'Normal',
