@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 		<td><strong>Version:</strong></td>
-		<td>Beta 1.4.4</td>
+		<td>Beta 1.4.5</td>
 	</tr>
 </table>
 
