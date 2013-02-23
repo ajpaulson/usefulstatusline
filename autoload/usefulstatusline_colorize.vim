@@ -1,8 +1,3 @@
-if (exists('loaded_usefulstatusline_colorize')) || !has('statusline')
-	finish
-endif
-let g:loaded_usefulstatusline_colorize=1
-
 function! usefulstatusline_colorize#Colorize()
 	" Solarized && g:solarized_vars {{{
 	if (g:colors_name == 'solarized' && exists('g:solarized_vars'))

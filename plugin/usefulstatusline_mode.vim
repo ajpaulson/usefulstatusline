@@ -1,7 +1,7 @@
-if (exists('loaded_usefulstatusline_plugin')) || !has('statusline')
+if (exists('g:loaded_usefulstatusline')) || !has('statusline')
 	finish
 endif
-let g:loaded_usefulstatusline_plugin=1
+let g:loaded_usefulstatusline=1
 
 if (!exists('g:currentmode'))
 	let g:currentmode={

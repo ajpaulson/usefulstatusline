@@ -1,8 +1,3 @@
-if (exists('loaded_usefulstatusline_filesize')) || !has('statusline')
-	finish
-endif
-let g:loaded_usefulstatusline_filesize=1
-
 function! usefulstatusline_filesize#FileSizePure()
 	let bytes = line2byte(line('$')+1)-1
 	if (bytes >= 1000)
