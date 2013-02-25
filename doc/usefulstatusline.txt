@@ -1,4 +1,4 @@
-*usefulstatusline.txt*     For Vim version 7.3    Last change: 2013 Feb 24
+*usefulstatusline.txt*     For Vim version 7.3    Last change: 2013 Feb 25
 
 _//       _//               _//                                 ~
 _/ _//   _///               _//                                 ~
@@ -19,10 +19,10 @@ _//       _//    _// _//_//    _// _//   _//   _//   _///// _// ~
 Name:    Useful Statusline *usefulstatusline*
 Author:  Eduan Lavaque (http://eduantech.com/)
 Source:  https://github.com/Greduan/vim-usefulstatusline
-Version: Beta 1.6.1
+Version: Beta 1.6.2
 
-==============================================================================
-CONTENTS                                             *usefulstatusline-contents*
+===============================================================================
+CONTENTS                                            *usefulstatusline-contents*
 
     1. Introduction .................... |usefulstatusline-intro|
     2. Installation .................... |usefulstatusline-install|
@@ -37,8 +37,8 @@ CONTENTS                                             *usefulstatusline-contents*
         5.1. License ................... |usefulstatusline-license|
     6. Credits ......................... |usefulstatusline-credits|
 
-==============================================================================
-1. Introduction                                         *usefulstatusline-intro*
+===============================================================================
+1. Introduction                                        *usefulstatusline-intro*
 
 A cool little light-weight plugin that gives you access to lots of useful
 little functions for your statusline. That's what Useful Statusline is.
@@ -47,11 +47,11 @@ Basically, it gives you lots of stuff to use in your statusline. However if
 you're using Lokaltog/powerline this is pretty much useless, remember that.
 
 For starters it gives you a function to output the current buffer's file size,
-it allows you to change the statusline color depending on the color. And it
-can output the current mode, not only change the statusline's color.
+it allows you to change the statusline color depending on the color. And it can
+output the current mode, not only change the statusline's color.
 
-==============================================================================
-2. Installation                                     *usefulstatusline-install*
+===============================================================================
+2. Installation                                      *usefulstatusline-install*
 
 If you don't have a preffered installation method, I recommend using Pathogen
 (script #2332) or Vundle (github.com/gmarik/vundle).
@@ -68,8 +68,8 @@ If you prefer Vundle you can copy&paste the following into your .vimrc file: >
 Once that is done, and you startup Vim, the help docs' tags will be generated
 and you can view the manual with ':h |usefulstatusline|'
 
-------------------------------------------------------------------------------
-2.1 Requirements                               *usefulstatusline-requirements*
+-------------------------------------------------------------------------------
+2.1 Requirements                                *usefulstatusline-requirements*
 
 These are some things that Useful Statusline might require, or would be better
 if it had.
@@ -77,16 +77,16 @@ if it had.
 The file size functions *may* require Vim to be compiled with the following:
 |byte_offset| |+float|
 
-==============================================================================
-3. Settings                                        *usefulstatusline-settings*
+===============================================================================
+3. Settings                                         *usefulstatusline-settings*
 
 In this section I'm gonna offer you some of the things that can be configured
 for Mode Colorize. Mostly behaviors and stuff like that.
 
 However I'm afraid right now there's nothing to configure. :(
 
-==============================================================================
-4. Uses & Features                            *usefulstatusline-uses-features*
+===============================================================================
+4. Uses & Features                             *usefulstatusline-uses-features*
 
 In this section I'm gonna list some (or all) of the features that Useful
 Statusline provides, and how to achieve them.
@@ -98,8 +98,8 @@ function name. The difference is that one puts out the output in a pure
 fashion, only the result of the value. And the non-pure version will output it
 in a nice way.
 
-------------------------------------------------------------------------------
-4.1. Current file's size                           *usefulstatusline-filesize*
+-------------------------------------------------------------------------------
+4.1. Current file's size                            *usefulstatusline-filesize*
 
 Useful Statusline comes with a nice addition to your statusline. It doesn't
 have anything to do with it's color or mode, however since it is a plugin for
@@ -114,17 +114,18 @@ I'm also gonna give it to you in two ways, one outputs the current file's size
 [11.123kB]). Which one you use is up to you however.
 
 The way it does it is like this: >
-    [100.12kB]
-    ^   ^ ^
-    |   | |
-    |   | + File size format, possible formats are `B` for bytes, `kB` for
-    |   |   kilobytes, and `MB` for megabytes.
-    |   |
-    |   + The remainder of the size, if the format is `kB` then it will output
-    |     the bytes, if it's `MB` it outputs kilobytes.
-    |
-    + The file size, it can output `B` for bytes, `kB` for kilobytes and `MB`
-      formegabytes.
+    [100.123kB]
+     ^  ^   ^
+     |  |   |
+     |  |   + File size format, possible formats are `B` for bytes, `kB` for
+     |  |     kilobytes, and `MB` for megabytes. There's also `B` for bytes,
+     |  |     `KiB` for kibibytes, and `MiB` for mebibytes.
+     |  |
+     |  + The remainder of the size, if the format is `kB` then it will output
+     |    the bytes, if it's `MB` it outputs kilobytes.
+     |
+     + The file size, it can output `B` for bytes, `kB` for kilobytes and `MB`
+       for megabytes.
 <
 
 You can use them putting the following into your statusline (one line for each
@@ -138,15 +139,15 @@ them, use them as you like, remember you can also manipulate the text they
 output. And also remember you can put them wherever you want, not just the
 statusline.
 
-One more thing, if the file for whatever reason is empty it will output
-"empty" or within the square brackets.
+One more thing, if the file for whatever reason is empty it will output "empty"
+or within the square brackets.
 
 Last thing (I promise). If you give it the argument of `0` it will output in
 terms of kibibytes, mebibytes etc. If you give it an argument of `1` it will
 output in terms of kilobytes, megabytes etc. It's your preference really.
 
-------------------------------------------------------------------------------
-4.1.1 Current mode variable             *usefulstatusline-currentmodevariable*
+-------------------------------------------------------------------------------
+4.1.1 Current mode variable              *usefulstatusline-currentmodevariable*
 
 In this plugin I made myself the favor of setting the `g:currentmode` variable,
 it's basically a nice version of the current mode. So for visual mode the
@@ -157,22 +158,22 @@ mode, you can do the following: >
     g:currentmode[mode()]
 <
 
-Basically what this does is output the value of the dictionary that equals
-what |mode()| outputs, or something.
+Basically what this does is output the value of the dictionary that equals what
+|mode()| outputs, or something.
 
 If you want you can define this variable in your .vimrc file, however make
-sure to make it a dictionary and make sure that it contains every mode
-`:h |mode()|`.
+sure to make it a dictionary and make sure that it contains every mode |mode()|
+can output.
 
-------------------------------------------------------------------------------
-4.1.2 Current mode                              *usefulstatusline-currentmode*
+-------------------------------------------------------------------------------
+4.1.2 Current mode                               *usefulstatusline-currentmode*
 
 Now what would a statusline colorizing depending on the mode plugin be without
 outputting the current mode?
 
-Same rules as above, with or without square brackets it will output the
-current mode's name in a human readable mode. For example normal will output
-"Normal", visual block will output "V·Block" etc.
+Same rules as above, with or without square brackets it will output the current
+mode's name in a human readable mode. For example normal will output "Normal",
+visual block will output "V·Block" etc.
 
 Same as above, here they are: >
     %{usefulstatusline_mode#CurrentMode()}
@@ -183,8 +184,8 @@ Or if you really prefer the pure output, you can also call the g:currentmode
 variable, which contains all the mode names in a readable way. These functions
 just output this in a nice way.
 
-------------------------------------------------------------------------------
-4.2 Statusline colors                                *usefulstatusline-colors*
+-------------------------------------------------------------------------------
+4.2 Statusline colors                                 *usefulstatusline-colors*
 
 And now to the main show, changing the statusline's color depending on the
 mode. It's really pretty simple, you just gotta add the following function to
@@ -208,8 +209,8 @@ in insert mode you would add the following to your `.vimrc` file: >
     augroup END
 <
 
-------------------------------------------------------------------------------
-4.3 Date and time                                 *usefulstatusline-date-time*
+-------------------------------------------------------------------------------
+4.3 Date and time                                  *usefulstatusline-date-time*
 
 Useful Statusline has a function which will output different info in time and
 date, all depending on the function arguments you give it.
@@ -229,10 +230,9 @@ DateTimePure({format}, {time})                           *DateTimePure()*
                For the {format} argument, `1` outputs the date, as `MM/DD/YY`,
                `2` outputs the time, as `MM:HH:SS`, guess the values. And `3`
                outputs both of these combined, first the date then the time.
-               For the {time} argument, `1` outputs the last modification
-               time and date of the current buffer. `2` outputs the current
-               time wherever you're living (I think). I only recommend the
-               first.
+               For the {time} argument, `1` outputs the last modification time
+               and date of the current buffer. `2` outputs the current time
+               wherever you're living (I think). I only recommend the first.
 
 By now you're familiar of how to use them, so that's the end of me. Make good
 use of this function, as it can be VERY useful.
@@ -242,21 +242,24 @@ Oh, just in case though, you call it like this: >
     %{usefulstatusline_date_time#DateTime({format}, {time})}
 <
 
-==============================================================================
-5. About                                              *usefulstatusline-about*
+===============================================================================
+5. About                                               *usefulstatusline-about*
 
-Mode Colorize was born from need, almost. I found out about the idea to
+Useful Statusline was born from need, almost. I found out about the idea to
 colorize the statusline and I wanted it! However I had a hart time
-implementing it I finally did it inside my .vimrc file (or my statusline.vim
-file in my case). It will output the current mode, buffer's file size and
-change the color of the statusline.
+implementing it, I finally did it inside my .vimrc file (or my statusline.vim
+file in my case).
 
-After I finished working on that I noticed probably not a lot of people do
-this because it's hard to implement, or atleast not easy and it requires some
+After I finished working on that I noticed probably not a lot of people do this
+because it's hard to implement, or atleast not easy and it requires some
 experimentation. So I decided to put it into a nice plugin.
 
-------------------------------------------------------------------------------
-5.1. License                                        *usefulstatusline-license*
+With time I found I needed other functions besides colorizing the statusline
+depending on the mode, so I kept adding them, and if they're difficult enough
+to implement I just put them into this plugin.
+
+-------------------------------------------------------------------------------
+5.1. License                                         *usefulstatusline-license*
 
 The MIT License (MIT)
 Copyright © 2012-2013 Eduan Lavaque <eduan@snapsimpletech.com>
@@ -280,8 +283,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-==============================================================================
-6. Credits                                          *usefulstatusline-credits*
+===============================================================================
+6. Credits                                           *usefulstatusline-credits*
 
 In here I will list all the people I'm grateful towards, for one reason or
 another, whichever that may be.
@@ -290,4 +293,4 @@ another, whichever that may be.
           functions. He helped me with this StackOverflow question:
           http://stackoverflow.com/q/14549733/1622940
 
- vim:tw=78:et:ft=help:norl
+ vim:tw=79:et:ft=help:norl
