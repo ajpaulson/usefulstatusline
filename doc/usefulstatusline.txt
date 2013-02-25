@@ -19,7 +19,7 @@ _//       _//    _// _//_//    _// _//   _//   _//   _///// _// ~
 Name:    Useful Statusline *usefulstatusline*
 Author:  Eduan Lavaque (http://eduantech.com/)
 Source:  https://github.com/Greduan/vim-usefulstatusline
-Version: Beta 1.5.0
+Version: Beta 1.6.0
 
 ==============================================================================
 CONTENTS                                             *usefulstatusline-contents*
@@ -129,8 +129,8 @@ The way it does it is like this: >
 
 You can use them putting the following into your statusline (one line for each
 version): >
-    %{usefulstatusline_filesize#FileSize()}
-    %{usefulstatusline_filesize#FileSizePure()}
+    %{usefulstatusline_filesize#FileSize({bytes})}
+    %{usefulstatusline_filesize#FileSizePure({bytes})}
 <
 
 The first one outputs with the square brackets, the second one outputs without
@@ -140,6 +140,10 @@ statusline.
 
 One more thing, if the file for whatever reason is empty it will output
 "empty" or within the square brackets.
+
+Last thing (I promise). If you give it the argument of `0` it will output in
+terms of kibibytes, mebibytes etc. If you give it an argument of `1` it will
+output in terms of kilobytes, megabytes etc. It's your preference really.
 
 ------------------------------------------------------------------------------
 4.1.1 Current mode variable             *usefulstatusline-currentmodevariable*
@@ -213,11 +217,12 @@ date, all depending on the function arguments you give it.
 Useful Statusline provides two functions for this. The pure version, and the
 normal version, as usual. :)
 
-This function, unlike the rest, takes function arguments, and of course, I'm
-gonna present this function the same way Vim presents it's functions. :)
+This function, unlike the majority of the rest, takes function arguments, and
+of course, I'm gonna present this function the same way Vim presents it's
+functions. :)
 
 DateTimePure({format}, {time})                           *DateTimePure()*
-               The result is a String, which is a fromatted date and time, as
+               The result is a String, which is a formatted date and time, as
                specified by the {format} argument. The {format} argument takes
                only 3 values, `1` `2` or `3`, integers. The {time} argument
                takes 2 values, `1` or `2`.
