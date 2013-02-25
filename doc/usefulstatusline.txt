@@ -1,4 +1,4 @@
-*usefulstatusline.txt*     For Vim version 7.3    Last change: 2012 December 27
+*usefulstatusline.txt*     For Vim version 7.3    Last change: 2013 Feb 24
 
 _//       _//               _//                                 ~
 _/ _//   _///               _//                                 ~
@@ -32,9 +32,10 @@ CONTENTS                                             *usefulstatusline-contents*
             4.1.1. Current file's size . |usefulstatusline-filesize|
             4.1.2. Current mode ........ |usefulstatusline-currentmode|
         4.2. Statusline colors ......... |usefulstatusline-colors|
-    4. About ........................... |usefulstatusline-about|
-        4.1. License ................... |usefulstatusline-license|
-    5. Credits ......................... |usefulstatusline-credits|
+        4.3. Date and time ............. |usefulstatusline-date-time|
+    5. About ........................... |usefulstatusline-about|
+        5.1. License ................... |usefulstatusline-license|
+    6. Credits ......................... |usefulstatusline-credits|
 
 ==============================================================================
 1. Introduction                                         *usefulstatusline-intro*
@@ -141,7 +142,7 @@ One more thing, if the file for whatever reason is empty it will output
 "empty" or within the square brackets.
 
 ------------------------------------------------------------------------------
-4.1. Current mode variable              *usefulstatusline-currentmodevariable*
+4.1.1 Current mode variable             *usefulstatusline-currentmodevariable*
 
 In this plugin I made myself the favor of setting the `g:currentmode` variable,
 it's basically a nice version of the current mode. So for visual mode the
@@ -159,9 +160,8 @@ If you want you can define this variable in your .vimrc file, however make
 sure to make it a dictionary and make sure that it contains every mode
 `:h |mode()|`.
 
-
 ------------------------------------------------------------------------------
-4.1.1 Current mode                              *usefulstatusline-currentmode*
+4.1.2 Current mode                              *usefulstatusline-currentmode*
 
 Now what would a statusline colorizing depending on the mode plugin be without
 outputting the current mode?
@@ -180,7 +180,7 @@ variable, which contains all the mode names in a readable way. These functions
 just output this in a nice way.
 
 ------------------------------------------------------------------------------
-4.1.2 Statusline colors                              *usefulstatusline-colors*
+4.2 Statusline colors                                *usefulstatusline-colors*
 
 And now to the main show, changing the statusline's color depending on the
 mode. It's really pretty simple, you just gotta add the following function to
@@ -202,6 +202,39 @@ in insert mode you would add the following to your `.vimrc` file: >
     	autocmd InsertEnter,InsertLeave * :call
     		\ usefulstatusline_colorize#Colorize()
     augroup END
+<
+
+------------------------------------------------------------------------------
+4.3 Date and time                                 *usefulstatusline-date-time*
+
+Useful Statusline has a function which will output different info in time and
+date, all depending on the function arguments you give it.
+
+Useful Statusline provides two functions for this. The pure version, and the
+normal version, as usual. :)
+
+This function, unlike the rest, takes function arguments, and of course, I'm
+gonna present this function the same way Vim presents it's functions. :)
+
+DateTimePure({format}, {time})                           *DateTimePure()*
+               The result is a String, which is a fromatted date and time, as
+               specified by the {format} argument. The {format} argument takes
+               only 3 values, `1` `2` or `3`, integers. The {time} argument
+               takes 2 values, `1` or `2`.
+               For the {format} argument, `1` outputs the date, as `MM/DD/YY`,
+               `2` outputs the time, as `MM:HH:SS`, guess the values. And `3`
+               outputs both of these combined, first the date then the time.
+               For the {time} argument, `1` outputs the last modification
+               time and date of the current buffer. `2` outputs the current
+               time wherever you're living (I think). I only recommend the
+               first.
+
+By now you're familiar of how to use them, so that's the end of me. Make good
+use of this function, as it can be VERY useful.
+
+Oh, just in case though, you call it like this: >
+    %{usefulstatusline_date_time#DateTimePure({format}, {time})}
+    %{usefulstatusline_date_time#DateTime({format}, {time})}
 <
 
 ==============================================================================
