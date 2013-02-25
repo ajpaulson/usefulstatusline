@@ -1,5 +1,1 @@
-Do something with the following:
-strftime('%d/%m/%y %T',localtime())
-
-Will output:
-23/02/13 13:45:01
+No plans for now...

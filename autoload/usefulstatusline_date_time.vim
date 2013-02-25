@@ -1,12 +1,25 @@
 function! usefulstatusline_date_time#DateTime(format, time)
-	" By default output this format
-	let a:format = '%m/%d/%y %T'
+	if (a:format == 1)
+		" Output date
+		let s:format = '%m/%d/%y'
+	elseif (a:format == 2)
+		" Output time
+		let s:format = '%T'
+	elseif (a:format == 3)
+		" Output date and time
+		let s:format = '%m/%d/%y %T'
+	endif
 
-	" By default output the file's last modification
-	let a:time = getftime(expand('%'))
+	if (a:time == 1)
+		" Output last modified date and time of current buffer
+		let s:time = getftime(expand("%"))
+	elseif (a:time == 2)
+		" Output current time
+		let s:time = localtime()
+	endif
 
 	" Convert user options into a string
-	let s:output = strftime(a:format, a:time)
+	let s:output = strftime(s:format, s:time)
 
 	" Output results
 	return s:output
