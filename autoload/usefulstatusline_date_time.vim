@@ -1,4 +1,4 @@
-function! usefulstatusline_date_time#DateTime(format, time)
+function! usefulstatusline_date_time#DateTimePure(format, time)
 	if (a:format == 1)
 		" Output date
 		let s:format = '%m/%d/%y'
@@ -22,5 +22,10 @@ function! usefulstatusline_date_time#DateTime(format, time)
 	let s:output = strftime(s:format, s:time)
 
 	" Output results
+	return s:output
+endfunc
+
+function! usefulstatusline_date_time#DateTime(format, time)
+	let s:output = '['.usefulstatusline_date_time#DateTimePure(a:format, a:time).']'
 	return s:output
 endfunc
