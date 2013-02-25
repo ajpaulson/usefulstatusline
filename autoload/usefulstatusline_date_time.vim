@@ -26,6 +26,8 @@ function! usefulstatusline_date_time#DateTimePure(format, time)
 endfunc
 
 function! usefulstatusline_date_time#DateTime(format, time)
+	" Output the same as the pure function, however it now puts it in between
+	" brackets
 	let s:output = '['.usefulstatusline_date_time#DateTimePure(a:format, a:time).']'
 	return s:output
 endfunc

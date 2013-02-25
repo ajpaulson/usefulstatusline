@@ -1,26 +1,43 @@
 function! usefulstatusline_filesize#FileSizePure(byte)
+	" Check if we're gonna use the bit or the bytes approach (I call it that,
+	" don't know if it's called that)
+	" In this case, if the user wants to use the bytes approach:
 	if (a:byte == 1)
+		" Figure out how many bytes the buffer has
 		let bytes = line2byte(line('$')+1)-1
+		" If the bytes reach kilobytes
 		if (bytes >= 1000)
 			let kbytes = bytes / 1000
 			let bytes_remainder = bytes % 1000
 		endif
+		" If kilobytes exist in the file, and the file reaches the size of
+		" megabytes
 		if (exists('kbytes') && kbytes >= 1000)
 			let mbytes = kbytes / 1000
 			let kbytes_remainder = kbytes % 1000
 		endif
 
+		" If the buffer is empty, output so
 		if (bytes <= 0)
 			return 'empty'
 		endif
 
+		" Check if the file is megabytes
 		if (exists('mbytes'))
+			" Output the file size in megabytes
 			return printf('%u.%03u', mbytes, kbytes_remainder) . 'MB'
+		" If megabytes don't exist, but kilobytes do
 		elseif (exists('kbytes'))
+			" Output the file size in kilobytes
 			return printf('%u.%03u', kbytes, bytes_remainder) . 'kB'
+		" If not even kylobytes exist
 		else
+			" Output the file size in bytes
 			return bytes . 'B'
 		endif
+
+	" Go for the bits approach
+	" I'm too lazy for more comments, so you can figure out the rest yourself
 	elseif (a:byte == 0)
 		let bytes = line2byte(line('$')+1)-1
 		if (bytes >= 1024)
@@ -46,7 +63,8 @@ function! usefulstatusline_filesize#FileSizePure(byte)
 	endif
 endfunction
 
-function! usefulstatusline_filesize#FileSize(bytes)
-	let s:output = '['.usefulstatusline_filesize#FileSizePure(a:bytes).']'
+function! usefulstatusline_filesize#FileSize(byte)
+	" Output the same as the pure version, but in between brackets
+	let s:output = '['.usefulstatusline_filesize#FileSizePure(a:byte).']'
 	return s:output
 endfunction

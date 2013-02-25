@@ -19,7 +19,7 @@ _//       _//    _// _//_//    _// _//   _//   _//   _///// _// ~
 Name:    Useful Statusline *usefulstatusline*
 Author:  Eduan Lavaque (http://eduantech.com/)
 Source:  https://github.com/Greduan/vim-usefulstatusline
-Version: Beta 1.6.0
+Version: Beta 1.6.1
 
 ==============================================================================
 CONTENTS                                             *usefulstatusline-contents*
@@ -129,8 +129,8 @@ The way it does it is like this: >
 
 You can use them putting the following into your statusline (one line for each
 version): >
-    %{usefulstatusline_filesize#FileSize({bytes})}
-    %{usefulstatusline_filesize#FileSizePure({bytes})}
+    %{usefulstatusline_filesize#FileSize({byte})}
+    %{usefulstatusline_filesize#FileSizePure({byte})}
 <
 
 The first one outputs with the square brackets, the second one outputs without
