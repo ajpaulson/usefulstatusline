@@ -39,13 +39,13 @@ If you prefer Pathogen you can copy&paste the following into your Terminal:
 
 ```sh
 cd ~/.vim/bundle
-git clone git://github.com/Greduan/vim-usefulstatusline.git
+git clone git://github.com/ajpaulson/usefulstatusline.git
 ```
 
 If you prefer Vundle you can copy&paste the following into your `.vimrc` file:
 
 ```viml
-Bundle 'Greduan/vim-usefulstatusline'
+Bundle 'ajpaulson/usefulstatusline'
 ```
 
 Once that is done, and you startup Vim, the help docs' tags will be generated and you can view the manual with `:h usefulstatusline` to view most of what you're seeing right now.
