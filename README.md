@@ -1,5 +1,7 @@
 # Introduction
 
+Greduan originally created this plugin - I forked when the original repo was deleted
+
 -----
 
 <table>
@@ -13,7 +15,7 @@
 	</tr>
 	<tr>
 		<td><strong>Source:</strong></td>
-		<td>https://github.com/Greduan/vim-usefulstatusline</td>
+		<td>https://github.com/ajpaulson/usefulstatusline</td>
 	</tr>
 	<tr>
 		<td><strong>Version:</strong></td>
